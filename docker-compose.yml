@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  ExtrairInformacoesDosDocumentosTask:
-    image: camworker
-    hostname: ExtrairInformacoesDosDocumentosTask
+  ExtrairInformacoesDosDocumentos:
+    image: extrairinformacoesdosdocumentos
+    hostname: ExtrairInformacoesDosDocumentos
     restart: unless-stopped
     build:
       context: .
