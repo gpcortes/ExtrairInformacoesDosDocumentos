@@ -11,10 +11,10 @@ import ftplib
 from datetime import date, datetime
 import locale
 import pycamunda.task
-locale.setlocale(locale.LC_TIME, "pt_BR")
+# locale.setlocale(locale.LC_TIME, "pt_BR")
 
 def load_env():
-    if os.getenv('ENV') != 'production':
+    if os.getenv('EVN') != 'production':
         from os.path import join, dirname
         from dotenv import load_dotenv
         dotenv_path = join(dirname(__file__), 'finan.env')
@@ -46,7 +46,7 @@ def update_task_id(instance_id, rpaID):
 
 
 def get_engine():
-    FINAN_HOST_DB, FINAN_PORT_DB, FINAN_USER_DB, FINAN_PASSWD_DB, FINAN_DB = load_env()
+    FINAN_HOST_DB, FINAN_PORT_DB, FINAN_USER_DB, FINAN_PASSWD_DB, FINAN_DB, _, _, _ = load_env()
     return create_engine('mysql+pymysql://'+FINAN_USER_DB+':'+FINAN_PASSWD_DB+'@'+FINAN_HOST_DB+':'+FINAN_PORT_DB+'/'+FINAN_DB)
 
 
